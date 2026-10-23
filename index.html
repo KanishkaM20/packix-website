@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PACKIX | Smart Packaging Essentials</title>
+  <meta name="description" content="PACKIX supplies paper bags, paper boxes, plastic cups and packaging essentials for hotels, restaurants and shops around Ahangama, Sri Lanka.">
+
+  <style>
+    :root {
+      --navy: #10213b;
+      --navy-light: #1b3558;
+      --gold: #e8bd68;
+      --cream: #fbf8f1;
+      --white: #ffffff;
+      --text: #253149;
+      --muted: #68748a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--white);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 85% 25%, #315078 0%, transparent 42%),
+        linear-gradient(135deg, var(--navy), #172e4d);
+      color: var(--white);
+      padding: 95px 0;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.08;
+      margin: 18px 0;
+    }
+
+    .hero p.description {
+      color: #e1e7f0;
+      max-width: 550px;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 13px 23px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+
+    .button-outline {
+      display: inline-block;
+      color: var(--white);
+      border: 1px solid #aab7c9;
+      padding: 12px 22px;
+      border-radius: 5px;
+      margin-left: 8px;
+    }
+
+    .hero-art {
+      min-height: 310px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .package {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 900;
+      letter-spacing: 2px;
+      box-shadow: 0 20px 45px #0003;
+    }
+
+    .bag {
+      width: 150px;
+      height: 190px;
+      background: var(--cream);
+      color: var(--navy);
+      transform: rotate(-7deg);
+      border-top: 12px solid #e8dfce;
+    }
+
+    .box-package {
+      width: 145px;
+      height: 135px;
+      background: var(--gold);
+      color: var(--navy);
+      transform: rotate(7deg);
+      border-top: 12px solid #d6a84f;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading span {
+      color: #9b762e;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 39px);
+      color: var(--navy);
+      margin: 8px 0;
+    }
+
+    .section-heading p {
+      max-width: 620px;
+      color: var(--muted);
+      margin: auto;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #e7eaf0;
+      border-radius: 10px;
+      padding: 27px 20px;
+      background: var(--white);
+      transition: 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px #10213b12;
+    }
+
+    .product-icon {
+      background: var(--cream);
+      border-radius: 8px;
+      height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      color: var(--navy);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .about {
+      background: var(--cream);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about h2 {
+      color: var(--navy);
+      font-size: 36px;
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .about p {
+      color: var(--muted);
+      margin: 12px 0;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 14px;
+    }
+
+    .benefit {
+      background: var(--white);
+      padding: 18px;
+      border-radius: 8px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .benefit strong {
+      color: var(--navy);
+      display: block;
+    }
+
+    .benefit span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact {
+      background: var(--navy);
+      text-align: center;
+      color: var(--white);
+    }
+
+    .contact h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin: 10px 0;
+    }
+
+    .contact p {
+      color: #dce4ef;
+      max-width: 600px;
+      margin: 0 auto 25px;
+    }
+
+    footer {
+      background: #091426;
+      color: #d4dbe6;
+      padding: 25px 0;
+      font-size: 13px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer strong {
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-content,
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        min-height: 220px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero-art {
+        gap: 10px;
+      }
+
+      .bag {
+        width: 120px;
+        height: 155px;
+      }
+
+      .box-package {
+        width: 115px;
+        height: 115px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .button-outline {
+        margin: 12px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#">
+        PACKIX
+        <small>SMART PACKAGING ESSENTIALS</small>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div>
+          <div class="eyebrow">Packaging made simple</div>
+          <h1>Smart Packaging.<br>Better Business.</h1>
+          <p class="description">
+            Discover packaging essentials for hotels, restaurants,
+            cafes and shops. PACKIX helps your business find the
+            packaging supplies it needs.
+          </p>
+          <a class="button" href="#products">Explore Products</a>
+          <a class="button-outline" href="#contact">Contact Us</a>
+        </div>
+
+        <div class="hero-art" aria-label="PACKIX packaging illustration">
+          <div class="package bag">PACKIX</div>
+          <div class="package box-package">PACKIX</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-heading">
+          <span>What we offer</span>
+          <h2>Our Packaging Products</h2>
+          <p>
+            Everyday packaging essentials for your business,
+            all in one place.
+          </p>
+        </div>
+
+        <div class="products">
+          <article class="product-card">
+            <div class="product-icon" aria-hidden="true">🛍️</div>
+            <h3>Paper Bags</h3>
+            <p>Paper bags for retail shops, takeaway businesses and more.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon" aria-hidden="true">📦</div>
+            <h3>Paper Boxes</h3>
+            <p>Useful packaging boxes for food, products and takeaway orders.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon" aria-hidden="true">🥤</div>
+            <h3>Plastic Cups</h3>
+            <p>Cup options for cafes, restaurants and beverage businesses.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-icon" aria-hidden="true">🧰</div>
+            <h3>Other Packaging</h3>
+            <p>Ask us about other packaging supplies for your business.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-content">
+        <div>
+          <div class="eyebrow">About PACKIX</div>
+          <h2>Packaging Solutions for Growing Businesses</h2>
+          <p>
+            We serve businesses looking for practical packaging
+            supplies, including hotels, restaurants, cafes and shops.
+          </p>
+          <p>
+            Contact us to ask about product availability, prices
+            and delivery options around Ahangama, Sri Lanka.
+          </p>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit">
+            <strong>Packaging Essentials</strong>
+            <span>A range of useful packaging products for businesses.</span>
+          </div>
+          <div class="benefit">
+            <strong>Competitive Prices</strong>
+            <span>Contact us for current product prices and offers.</span>
+          </div>
+          <div class="benefit">
+            <strong>Local Delivery Enquiries</strong>
+            <span>Ask about delivery availability around Ahangama.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="eyebrow">Let's talk packaging</div>
+        <h2>Looking for Packaging Supplies?</h2>
+        <p>
+          Contact PACKIX to ask about our products, prices
+          and ordering options for your business.
+        </p>
+
+        <!-- Replace the placeholder below with your WhatsApp number.
+             Use country code and digits only, e.g. 94771234567. -->
+        <a class="button"
+           href="https://wa.me/94XXXXXXXXX"
+           target="_blank"
+           rel="noopener noreferrer">
+          Order on WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <strong>PACKIX</strong>
+      <span>Smart Packaging Essentials</span>
+      <span>© 2026 PACKIX. All rights reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
